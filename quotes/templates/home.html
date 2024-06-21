@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<ul class="list-group">
+    {% if ticker %}
+        <li class="list-group-item">{{ ticker }}</li>
+    {% else %}
+        {% if not result %}
+            <li class="list-group-item">No Data Found.</li>
+        {% else %}
+            {% for key, value in result.items %}
+                <li class="list-group-item">{{ key }} : {{ value }}</li>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+</ul>
+{% endblock %}
